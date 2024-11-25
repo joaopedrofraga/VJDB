@@ -1,8 +1,11 @@
 # VJDB
 
 Projeto final da disciplina de Banco de Dados I.
+👨‍🎓: João Fraga e Vinicius Coelho
+👨‍🏫: Maurício Freitas
+📅: 29/11/2024
 
-## Getting Started
+## A aplicação
 
 This project is a starting point for a Flutter application.
 
