@@ -11,7 +11,7 @@ class FormaDePagamento {
     return FormaDePagamento(
       id: map['id'],
       nome: map['nome'],
-      ativo: map['ativos'],
+      ativo: map['ativo'],
     );
   }
 }

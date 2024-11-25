@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:vjdb/core/widgets/appbar/appbar_widget.dart';
 import 'package:vjdb/core/widgets/buttons/option_button_widget.dart';
-import 'package:vjdb/presentation/pages/relatoriosdecontas/todsacontas/todasconstas_page.dart';
+import 'package:vjdb/presentation/pages/relatoriosdecontas/todsacontas/todascontas_page.dart';
 import 'package:vjdb/presentation/pages/tabelas/clientes/clientes_menu.dart';
 import 'package:vjdb/presentation/pages/tabelas/enderecos/enderecos_menu.dart';
 

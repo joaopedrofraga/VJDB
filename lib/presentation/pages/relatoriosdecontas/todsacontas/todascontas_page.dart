@@ -20,6 +20,12 @@ class _TodasContasPageState extends State<TodasContasPage> {
     super.initState();
   }
 
+  void atualizarPagina() {
+    setState(() {
+      futureContas = fetchContas();
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -43,7 +49,8 @@ class _TodasContasPageState extends State<TodasContasPage> {
                   itemCount: contas.length,
                   itemBuilder: (context, index) {
                     final conta = contas[index];
-                    return ContaListTileWidget(conta: conta);
+                    return ContaListTileWidget(
+                        conta: conta, atualizarPagina: atualizarPagina);
                   },
                 );
               }

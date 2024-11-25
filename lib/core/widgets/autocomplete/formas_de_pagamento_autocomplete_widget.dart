@@ -58,7 +58,7 @@ class _FormasDePagamentoAutocompleteWidgetState
                   return GestureDetector(
                     onTap: () => onSelected(option),
                     child: ListTile(
-                      leading: const Icon(Icons.person),
+                      leading: const Icon(Icons.attach_money),
                       title: TextWidget.normal(option.nome),
                     ),
                   );
