@@ -1,19 +1,12 @@
 # 💥 VJDB
 
 Projeto final da disciplina de Banco de Dados I.
-\n👨‍🎓: João Fraga e Vinicius Coelho
+<br>👨‍🎓: João Fraga e Vinicius Coelho
 <br>👨‍🏫: Maurício Freitas
-📅: 29/11/2024
+<br>📅: 29/11/2024
 
-## A aplicação
+## 📎 Sobre a Aplicação
 
-This project is a starting point for a Flutter application.
+O *VJDB* é uma aplicação desenvolvida em Flutter, projetada para consolidar os conceitos aprendidos na disciplina de Banco de Dados I. Este projeto utiliza Flutter no front-end e integra com um banco de dados para gerenciar informações e funcionalidades práticas.
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
