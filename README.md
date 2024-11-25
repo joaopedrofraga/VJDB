@@ -1,6 +1,6 @@
-# vjdb
+# VJDB
 
-A new Flutter project.
+Projeto final da disciplina de Banco de Dados I.
 
 ## Getting Started
 
