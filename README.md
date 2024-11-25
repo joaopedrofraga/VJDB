@@ -1,8 +1,8 @@
-# VJDB
+# 💥 VJDB
 
 Projeto final da disciplina de Banco de Dados I.
-👨‍🎓: João Fraga e Vinicius Coelho
-👨‍🏫: Maurício Freitas
+\n👨‍🎓: João Fraga e Vinicius Coelho
+<br>👨‍🏫: Maurício Freitas
 📅: 29/11/2024
 
 ## A aplicação
