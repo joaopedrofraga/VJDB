@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:vjdb/core/config/vjdb_material.dart';
 import 'package:vjdb/core/widgets/buttons/option_button_widget.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:vjdb/presentation/pages/contasareceber/contasareceber_page.dart';
+import 'package:vjdb/presentation/pages/lancarconta/lancarconta_page.dart';
 import 'package:vjdb/presentation/pages/relatoriosdecontas/relatoriosdecontas_page.dart';
 import 'package:vjdb/presentation/pages/tabelas/tabelas_page.dart';
 
