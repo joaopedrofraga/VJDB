@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:vjdb/core/widgets/appbar/appbar_widget.dart';
-import 'package:vjdb/core/widgets/buttons/adicionar_cliente_button_widget.dart';
 import 'package:vjdb/core/widgets/buttons/adicionar_forma_button_widget.dart';
 import 'package:vjdb/core/widgets/inputs/text_form_field_widget.dart';
 

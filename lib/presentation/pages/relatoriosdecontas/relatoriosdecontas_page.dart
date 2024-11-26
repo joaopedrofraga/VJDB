@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:vjdb/core/widgets/appbar/appbar_widget.dart';
 import 'package:vjdb/core/widgets/buttons/option_button_widget.dart';
-import 'package:vjdb/presentation/pages/relatoriosdecontas/todsacontas/todascontas_page.dart';
-import 'package:vjdb/presentation/pages/tabelas/clientes/clientes_menu.dart';
+import 'package:vjdb/presentation/pages/relatoriosdecontas/contaspordata/selecionar_datas_page.dart';
+import 'package:vjdb/presentation/pages/relatoriosdecontas/todascontas/todascontas_page.dart';
 import 'package:vjdb/presentation/pages/tabelas/enderecos/enderecos_menu.dart';
 
 class RelatoriosDeContasPage extends StatefulWidget {
@@ -29,7 +29,7 @@ class _RelatoriosDeContastate extends State<RelatoriosDeContasPage> {
           OptionButtonWidget(
               icone: FaIcon(FontAwesomeIcons.calendarDay),
               label: 'Contas por Data',
-              pagina: EnderecosMenu()),
+              pagina: SelecionarDatasPage()),
           SizedBox(height: 12),
           OptionButtonWidget(
               icone: FaIcon(FontAwesomeIcons.userLarge),

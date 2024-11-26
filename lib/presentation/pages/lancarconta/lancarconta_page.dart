@@ -5,7 +5,6 @@ import 'package:vjdb/core/widgets/autocomplete/clientes_autocomplete_widget.dart
 import 'package:vjdb/core/widgets/buttons/adicionar_conta_button_widget.dart';
 import 'package:vjdb/core/widgets/inputs/masked_text_form_field_widget.dart';
 import 'package:vjdb/core/widgets/inputs/money_masked_text_form_field_widget.dart';
-import 'package:vjdb/core/widgets/inputs/text_form_field_widget.dart';
 import 'package:vjdb/core/widgets/texts/text_widget.dart';
 import 'package:vjdb/models/cliente_model.dart';
 
