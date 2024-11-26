@@ -1,0 +1,47 @@
+CREATE DATABASE IF NOT EXISTS `vjdb`
+USE `vjdb`;
+
+CREATE TABLE IF NOT EXISTS `clientes` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nome` varchar(100) DEFAULT NULL,
+  `telefone` varchar(20) DEFAULT NULL,
+  `cpf_cnpj` varchar(12) DEFAULT NULL,
+  `ie_rg` varchar(20) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+CREATE TABLE IF NOT EXISTS `contas` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id_cliente` int(11) NOT NULL,
+  `id_formapag` int(11) DEFAULT NULL,
+  `valor` decimal(20,6) NOT NULL DEFAULT '0.000000',
+  `situacao` varchar(2) DEFAULT NULL,
+  `data_baixa` date DEFAULT NULL,
+  `emissao` date DEFAULT NULL,
+  `vencimento` date DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `id_contas_clientes` (`id_cliente`),
+  KEY `id_contas_formaspag` (`id_formapag`),
+  CONSTRAINT `id_contas_clientes` FOREIGN KEY (`id_cliente`) REFERENCES `clientes` (`id`),
+  CONSTRAINT `id_contas_formaspag` FOREIGN KEY (`id_formapag`) REFERENCES `formas_pagamento` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+CREATE TABLE IF NOT EXISTS `enderecos` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id_cliente` int(11) NOT NULL,
+  `cidade` varchar(50) DEFAULT NULL,
+  `bairro` varchar(50) DEFAULT NULL,
+  `rua` varchar(20) DEFAULT NULL,
+  `numero` varchar(10) DEFAULT NULL,
+  `complemento` varchar(70) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_enderecos_clientes` (`id_cliente`),
+  CONSTRAINT `fk_enderecos_clientes` FOREIGN KEY (`id_cliente`) REFERENCES `clientes` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+CREATE TABLE IF NOT EXISTS `formas_pagamento` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nome` varchar(20) DEFAULT NULL,
+  `ativo` tinyint(2) NOT NULL DEFAULT '1',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;

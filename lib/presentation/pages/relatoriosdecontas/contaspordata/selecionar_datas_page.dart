@@ -93,14 +93,12 @@ LEFT JOIN formas_pagamento f ON c.id_formapag = f.id WHERE vencimento BETWEEN ? 
               ]),
               onPressed: () async {
                 List<Conta> contas = await consultarContasPorData();
-                Navigator.of(context).push(
-                  MaterialPageRoute(
-                    builder: (context) => ContasPorDataPage(
-                        contas: contas,
-                        dataInicial: dataInicialTEC.text,
-                        dataFinal: dataFinalTEC.text),
-                  ),
-                );
+                Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) => ContasPorDataPage(
+                      contas: contas,
+                      dataInicial: dataInicialTEC.text,
+                      dataFinal: dataFinalTEC.text),
+                ));
               },
             ),
           )

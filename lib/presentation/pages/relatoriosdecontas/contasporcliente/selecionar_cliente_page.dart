@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:vjdb/core/config/vjdb_material.dart';
+import 'package:vjdb/core/database/conndb.dart';
 import 'package:vjdb/core/widgets/appbar/appbar_widget.dart';
 import 'package:vjdb/core/widgets/autocomplete/clientes_autocomplete_widget.dart';
 import 'package:vjdb/core/widgets/texts/text_widget.dart';
 import 'package:vjdb/models/cliente_model.dart';
+import 'package:vjdb/models/conta_model.dart';
+import 'package:vjdb/presentation/pages/relatoriosdecontas/contasporcliente/contasporcliente_page.dart';
 
 class SelecionarClientePage extends StatefulWidget {
   const SelecionarClientePage({super.key});
@@ -27,6 +30,45 @@ class _EnderecosAdicionarState extends State<SelecionarClientePage> {
   void initState() {
     futureClientes = fetchClientes();
     super.initState();
+  }
+
+  Future<List<Conta>> consultarContasPorCliente() async {
+    final connection = ConnDB();
+    try {
+      final results = await connection.query('''SELECT
+	 c.id,
+	 cli.id AS cliente_id,
+    cli.nome AS cliente_nome,
+    cli.telefone AS cliente_telefone,
+    cli.cpf_cnpj AS cliente_cpf_cnpj,
+    cli.ie_rg AS cliente_ie_rg,
+    f.id AS forma_id,
+    f.nome AS forma_nome,
+    f.ativo AS forma_ativo,
+    c.valor,
+    c.situacao,
+    c.data_baixa,
+    c.emissao,
+    c.vencimento
+FROM contas c
+LEFT JOIN clientes cli ON c.id_cliente = cli.id
+LEFT JOIN formas_pagamento f ON c.id_formapag = f.id WHERE id_cliente = ?''',
+          [clienteSelecionado!.id]);
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+          content: TextWidget.normal('CONSULTA FEITA COM SUCESSO!',
+              color: Colors.white),
+          backgroundColor: Colors.green));
+      return results.map((result) {
+        return Conta.fromMap(result.fields);
+      }).toList();
+    } catch (e) {
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+          content: TextWidget.normal('ERRO: $e', color: Colors.white),
+          backgroundColor: Colors.red));
+      return List.empty();
+    } finally {
+      connection.close();
+    }
   }
 
   @override
@@ -68,7 +110,16 @@ class _EnderecosAdicionarState extends State<SelecionarClientePage> {
                             const SizedBox(width: 10),
                             TextWidget.bold('CONSULTAR CONTAS')
                           ]),
-                      onPressed: () {},
+                      onPressed: () async {
+                        if (clienteSelecionado != null) {
+                          List<Conta> contas =
+                              await consultarContasPorCliente();
+                          Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => ContasPorClientePage(
+                                contas: contas, cliente: clienteSelecionado!),
+                          ));
+                        }
+                      },
                     ),
                   )
                 ]);
