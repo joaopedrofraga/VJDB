@@ -58,8 +58,8 @@ class _AReceberNaProximaSemanaPageState
 FROM contas c
 LEFT JOIN clientes cli ON c.id_cliente = cli.id
 LEFT JOIN formas_pagamento f ON c.id_formapag = f.id
-WHERE vencimento BETWEEN ? AND ?;
-''', [diaAtual, diaFinal]);
+WHERE situacao = ? AND vencimento BETWEEN ? AND ?;
+''', ['A', diaAtual, diaFinal]);
       return results.map((result) {
         return Conta.fromMap(result.fields);
       }).toList();
