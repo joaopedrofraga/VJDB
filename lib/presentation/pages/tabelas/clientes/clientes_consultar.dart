@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:vjdb/core/widgets/appbar/appbar_widget.dart';
 import 'package:vjdb/core/widgets/texts/text_widget.dart';
 import 'package:vjdb/models/cliente_model.dart';
+import 'package:vjdb/presentation/pages/tabelas/clientes/cliente_list_tile_widget.dart';
 
 class ClientesConsultar extends StatefulWidget {
   const ClientesConsultar({super.key});
@@ -38,12 +39,9 @@ class _ClientesConsultarState extends State<ClientesConsultar> {
                     child: TextWidget.bold('Nenhum cliente encontrado.'));
               } else {
                 List<Cliente> clientes = snapshot.data!;
-                return ListView.separated(
+                return ListView.builder(
                     itemBuilder: (context, index) {
-                      return TextWidget.normal(clientes[index].nome);
-                    },
-                    separatorBuilder: (context, index) {
-                      return const Divider(height: 0.2);
+                      return ClienteListTileWidget(cliente: clientes[index]);
                     },
                     itemCount: clientes.length);
               }
