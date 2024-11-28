@@ -1,22 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:vjdb/core/widgets/appbar/appbar_widget.dart';
 import 'package:vjdb/core/widgets/texts/text_widget.dart';
-import 'package:vjdb/models/endereco_model.dart';
-import 'package:vjdb/presentation/pages/tabelas/enderecos/endereco_list_tile_widget.dart';
+import 'package:vjdb/models/forma_de_pagamento_model.dart';
+import 'package:vjdb/presentation/pages/tabelas/formas/forma_list_tile_widget.dart';
 
-class EnderecosConsultar extends StatefulWidget {
-  const EnderecosConsultar({super.key});
+class FormasConsultar extends StatefulWidget {
+  const FormasConsultar({super.key});
 
   @override
-  State<EnderecosConsultar> createState() => _EnderecosConsultarState();
+  State<FormasConsultar> createState() => _FormasConsultarState();
 }
 
-class _EnderecosConsultarState extends State<EnderecosConsultar> {
-  late Future<List<Endereco>> futureEnderecos;
+class _FormasConsultarState extends State<FormasConsultar> {
+  late Future<List<FormaDePagamento>> futureFormas;
 
   @override
   void initState() {
-    futureEnderecos = fetchEnderecos();
+    futureFormas = fetchFormasDePagamentos();
     super.initState();
   }
 
@@ -27,7 +27,7 @@ class _EnderecosConsultarState extends State<EnderecosConsultar> {
       body: Padding(
         padding: const EdgeInsets.all(20),
         child: FutureBuilder(
-            future: futureEnderecos,
+            future: futureFormas,
             builder: (context, snapshot) {
               if (snapshot.connectionState == ConnectionState.waiting) {
                 return const Center(child: CircularProgressIndicator());
@@ -36,14 +36,16 @@ class _EnderecosConsultarState extends State<EnderecosConsultar> {
                     child: TextWidget.bold('ERRO: ${snapshot.error}'));
               } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
                 return Center(
-                    child: TextWidget.bold('Nenhum endereço encontrado.'));
+                    child: TextWidget.bold(
+                        'Nenhuma forma de pagamento encontrada.'));
               } else {
-                List<Endereco> enderecos = snapshot.data!;
+                List<FormaDePagamento> formas = snapshot.data!;
                 return ListView.builder(
                     itemBuilder: (context, index) {
-                      return EnderecoListTileWidget(endereco: enderecos[index]);
+                      return FormaListTileWidget(
+                          formaDePagamento: formas[index]);
                     },
-                    itemCount: enderecos.length);
+                    itemCount: formas.length);
               }
             }),
       ),

@@ -71,7 +71,7 @@ class _AdicionarContaButtonWidgetState
                 ]);
             widget.limparTecs();
             ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                content: TextWidget.normal('ENDEREÇO ADICIONADO COM SUCESSO!',
+                content: TextWidget.normal('CONTA ADICIONADA COM SUCESSO!',
                     color: Colors.white),
                 backgroundColor: Colors.green));
           } catch (e) {

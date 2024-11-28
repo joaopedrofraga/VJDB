@@ -73,7 +73,7 @@ WHERE situacao = ? AND vencimento BETWEEN ? AND ?;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const AppBarWidget(titulo: 'TODAS CONTAS'),
+      appBar: const AppBarWidget(titulo: 'À RECEBER NA PRÓXIMA SEMANA'),
       body: Padding(
         padding: const EdgeInsets.all(20),
         child: FutureBuilder(
