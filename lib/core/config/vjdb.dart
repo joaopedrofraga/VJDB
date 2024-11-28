@@ -19,6 +19,7 @@ class _VJDBState extends State<VJDB> {
     return MaterialApp(
       title: VJDBMaterial.title,
       theme: VJDBMaterial.getTheme,
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar:
             AppBar(title: SizedBox(height: 50, child: VJDBMaterial.getLogo)),
