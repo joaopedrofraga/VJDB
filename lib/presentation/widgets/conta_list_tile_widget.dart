@@ -39,6 +39,19 @@ class _ContaListTileWidgetState extends State<ContaListTileWidget> {
     }
   }
 
+  void excluirConta() async {
+    final connection = ConnDB();
+    connection.open();
+    try {
+      await connection
+          .query('DELETE FROM contas WHERE id = ?', [widget.conta.id]);
+    } catch (e) {
+      throw Exception(e);
+    } finally {
+      connection.close();
+    }
+  }
+
   String dataFormatada(DateTime data) {
     return '${data.day < 10 ? '0' : ''}${data.day}/${data.month < 10 ? '0' : ''}${data.month}/${data.year}';
   }
@@ -148,6 +161,30 @@ class _ContaListTileWidgetState extends State<ContaListTileWidget> {
                               const Divider(),
                             ])),
               actions: [
+                ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.red,
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(12))),
+                    onPressed: () {
+                      try {
+                        excluirConta();
+                        Navigator.pop(context);
+                        widget.atualizarPagina();
+                        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                            content: TextWidget.normal(
+                                'CONTA EXCLUIDA COM SUCESSO!',
+                                color: Colors.white),
+                            backgroundColor: Colors.green));
+                      } catch (e) {
+                        Navigator.pop(context);
+                        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                            content: TextWidget.normal('ERRO: $e',
+                                color: Colors.white),
+                            backgroundColor: Colors.red));
+                      }
+                    },
+                    child: TextWidget.bold('Excluir', color: Colors.white)),
                 if (!paga)
                   ElevatedButton(
                       style: ElevatedButton.styleFrom(
