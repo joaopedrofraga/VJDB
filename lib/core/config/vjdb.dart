@@ -38,7 +38,7 @@ class _VJDBState extends State<VJDB> {
             SizedBox(height: 12),
             OptionButtonWidget(
                 icone: FaIcon(FontAwesomeIcons.book),
-                label: 'Relatório de Contas',
+                label: 'Relatórios de Contas',
                 pagina: RelatoriosDeContasPage()),
           ]),
         ),
