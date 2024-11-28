@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:vjdb/core/widgets/appbar/appbar_widget.dart';
 import 'package:vjdb/core/widgets/buttons/option_button_widget.dart';
-import 'package:vjdb/presentation/pages/tabelas/clientes/clientes_consultar.dart';
 import 'package:vjdb/presentation/pages/tabelas/enderecos/enderecos_adicionar.dart';
+import 'package:vjdb/presentation/pages/tabelas/enderecos/enderecos_consultar.dart';
 
 class EnderecosMenu extends StatefulWidget {
   const EnderecosMenu({super.key});
@@ -28,7 +28,7 @@ class _EnderecosMenuState extends State<EnderecosMenu> {
           OptionButtonWidget(
               icone: FaIcon(FontAwesomeIcons.globe),
               label: 'Consultar',
-              pagina: ClientesConsultar()),
+              pagina: EnderecosConsultar()),
         ]),
       ),
     );
