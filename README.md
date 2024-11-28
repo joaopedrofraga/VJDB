@@ -26,3 +26,7 @@ O projeto *VJDB* consiste em um sistema modular focado na gestão de contas a re
 - Flutter: Framework para desenvolvimento multiplataforma.
 - Dart: Linguagem de programação usada no Flutter.
 - MySQL: Banco de dados relacional utilizado para armazenar as informações.
+
+## 💻 Plataformas Suportadas
+
+O projeto foi feito para ser usado exclusivamente no Windows.
