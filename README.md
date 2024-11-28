@@ -7,7 +7,9 @@ Projeto final da disciplina de Banco de Dados I.
 
 ## 📝 Sobre a Aplicação
 
-O *VJDB* é uma aplicação desenvolvida em Flutter, projetada para consolidar os conceitos aprendidos na disciplina de Banco de Dados I. Este projeto utiliza Flutter no front-end e integra com um banco de dados para gerenciar informações e funcionalidades práticas.
+O projeto *VJDB* tem como objetivo ser um módulo simples e objetivo de contas à receber, abrangendo tudo que é necessário para controlar as contas lançadas.
+
+<p align="center"><img src="assets/images/demo.png" alt="Tela inicial do sistema."></p>
 
 ## 🛠️ Tecnologias Utilizadas
 
